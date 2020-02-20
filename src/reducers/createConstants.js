@@ -8,3 +8,7 @@ export const MESSAGE_ACTION = Object.freeze({
   SET_MESSAGE_CONFIRM: Symbol('SET_MESSAGE_CONFIRM'),
   REMOVE_MESSAGE_CONFIRM: Symbol('REMOVE_MESSAGE_CONFIRM'),
 });
+export const TODO_ACTION = Object.freeze({
+  SET_TODO_LIST: Symbol('SET_TODO_LIST'),
+  SET_TODO_ITEMS: Symbol('SET_TODO_ITEMS'),
+});
