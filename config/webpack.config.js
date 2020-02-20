@@ -253,6 +253,7 @@ module.exports = function (webpackEnv) {
                       },
                     },
                   ],
+                  'lodash',
                 ],
                 cacheDirectory: true,
                 cacheCompression: false,

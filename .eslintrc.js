@@ -1,10 +1,12 @@
 module.exports = {
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
   },
   extends: [
     'airbnb',
+    'eslint-config-airbnb',
   ],
   globals: {
     Atomics: 'readonly',
@@ -19,6 +21,7 @@ module.exports = {
   },
   plugins: [
     'react',
+    'import',
   ],
   rules: {
     'indent': 'off',
