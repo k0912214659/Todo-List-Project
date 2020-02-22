@@ -5,7 +5,7 @@ export const getHostApiURL = (env) => {
     case 'stage':
     case 'production':
     default:
-      return 'https://www.androvideo.com/';
+      return 'https://www.androvideo.com/api';
   }
 };
 export const getHostURL = (env) => {
@@ -15,6 +15,6 @@ export const getHostURL = (env) => {
     case 'stage':
     case 'production':
     default:
-      return 'https://www.androvideo.com/api/';
+      return 'https://www.androvideo.com/';
   }
 };

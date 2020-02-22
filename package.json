@@ -6,6 +6,7 @@
     "@material-ui/core": "^4.9.3",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.43",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "immer": "^5.3.6",
     "lodash": "^4.17.15",
@@ -17,7 +18,8 @@
     "react-router-dom": "^5.1.2",
     "react-spring": "^8.0.27",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.4.0"
   },
   "scripts": {
     "start": "node scripts/start.js --progress",
@@ -28,9 +30,6 @@
     "production": "cross-env NODE_ENV=production npm run start",
     "lint": "eslint --ext .js,.jsx ./src",
     "lintFix": "eslint --ext .js,.jsx ./src --fix"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -83,6 +82,7 @@
       "^@Images$": "<rootDir>/src/image-loader",
       "^@Tools(.*)$": "<rootDir>/src/tools/$1",
       "^@Hooks(.*)$": "<rootDir>/src/hooks/$1",
+      "^@Service(.*)$": "<rootDir>/src/service/$1",
       "^@Models(.*)$": "<rootDir>/src/models/$1",
       "^@CSS(.*)$": "<rootDir>/src/css/$1"
     },

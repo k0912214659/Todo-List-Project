@@ -57,6 +57,7 @@ module.exports = {
           ["@API", "./src/api"],
           ["@Tools", "./src/tools"],
           ["@Hooks", "./src/hooks"],
+          ["@Service", "./src/service"],
           ["@Models", "./src/models"],
           ["@CSS", "./src/css"],
           ["@Langs", "./src/langs"]
