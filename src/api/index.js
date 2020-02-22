@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {
-  CreateTodoAPIS,
-  CreateTodoLocalAPIS,
-} from './todo-apis';
+  CreateOrderBoardAPIS,
+  CreateOrderBoardLocalAPIS,
+} from './orderboard-apis';
 
 class TodoAPI {
   constructor({ host, target }) {
@@ -18,21 +18,21 @@ class TodoAPI {
     switch (apiTarget) {
       case 'local':
         this.apis = {
-          todoAPI: CreateTodoLocalAPIS({
+          orderBoardAPI: CreateOrderBoardLocalAPIS({
             client: this._axiosLocal,
           }),
         };
         break;
       case 'cloud':
         this.apis = {
-          todoAPI: CreateTodoAPIS({
+          orderBoardAPI: CreateOrderBoardAPIS({
             client: this._axiosCloud,
           }),
         };
         break;
       default:
         this.apis = {
-          todoAPI: CreateTodoLocalAPIS({
+          orderBoardAPI: CreateOrderBoardLocalAPIS({
             client: this._axiosLocal,
           }),
         };

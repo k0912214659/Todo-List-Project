@@ -6,7 +6,7 @@ import {
 import thunk from 'redux-thunk';
 import { createGlobalReducer } from './global';
 import { createMessageReducer } from './message';
-import { createTodoListReducer } from './todo';
+import { createOrderBoardListReducer } from './orderboard';
 
 async function createStore(params) {
   const { initialState } = params;
@@ -18,8 +18,8 @@ async function createStore(params) {
       message: createMessageReducer({
         initialState: initialState.message,
       }),
-      todo: createTodoListReducer({
-        initialState: initialState.todo,
+      orderBoard: createOrderBoardListReducer({
+        initialState: initialState.orderBoard,
       }),
     }),
     applyMiddleware(thunk),

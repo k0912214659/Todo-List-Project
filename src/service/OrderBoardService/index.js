@@ -1,12 +1,13 @@
 import uuidv4 from 'uuid/v4';
-import { getIsUUID } from '@Tools/utility';
+import { delay, getIsUUID } from '@Tools/utility';
 
-class TodoService {
+class OrderBoardService {
   constructor() {
-    this.serviceLocalKey = 'react-board:todoList';
+    this.serviceLocalKey = 'react-board:orderBoard';
   }
 
-  async getLocalStorageTodoList(page = 1, max = 10) {
+  async getLocalStorageOrderBoardList(page = 1, max = 10) {
+    await delay(250);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {
@@ -52,11 +53,12 @@ class TodoService {
       }
       return returnData;
     } catch (error) {
-      throw new Error('Get Local Todo List Error', error);
+      throw new Error('Get Local OrderBoard List Error', error);
     }
   }
 
-  async getLocalStorageTodoItem(id) {
+  async getLocalStorageOrderBoardItem(id) {
+    await delay(250);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       let returnData = {};
@@ -71,11 +73,12 @@ class TodoService {
       }
       return returnData;
     } catch (error) {
-      throw new Error('Get Local Todo Item Error', error);
+      throw new Error('Get Local OrderBoard Item Error', error);
     }
   }
 
-  async postLocalStorageTodoItem(data = { name: '', price: 0, note: '' }) {
+  async postLocalStorageOrderBoardItem(data = { name: '', price: 0, note: '' }) {
+    await delay(250);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};
@@ -91,11 +94,12 @@ class TodoService {
       }
       return returnData;
     } catch (error) {
-      throw new Error('Post Local Todo Item Error', error);
+      throw new Error('Post Local OrderBoard Item Error', error);
     }
   }
 
-  async putLocalStorageTodoItem(id = '', data = { name: '', price: 0, note: '' }) {
+  async putLocalStorageOrderBoardItem(id = '', data = { name: '', price: 0, note: '' }) {
+    await delay(250);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};
@@ -114,11 +118,12 @@ class TodoService {
       }
       return returnData;
     } catch (error) {
-      throw new Error('Post Local Todo Item Error', error);
+      throw new Error('Post Local OrderBoard Item Error', error);
     }
   }
 
-  async patchLocalStorageTodoIndex(id = '', data = { index: -1 }) {
+  async patchLocalStorageOrderBoardIndex(id = '', data = { index: -1 }) {
+    await delay(250);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};
@@ -135,11 +140,12 @@ class TodoService {
       }
       return returnData;
     } catch (error) {
-      throw new Error('Update Local Todo Item Index Error', error);
+      throw new Error('Update Local OrderBoard Item Index Error', error);
     }
   }
 
-  async deleteLocalStorageTodoItem(id = '') {
+  async deleteLocalStorageOrderBoardItem(id = '') {
+    await delay(250);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};
@@ -159,9 +165,9 @@ class TodoService {
       }
       return returnData;
     } catch (error) {
-      throw new Error('Delete Local Todo Item Error', error);
+      throw new Error('Delete Local OrderBoard Item Error', error);
     }
   }
 }
 
-export default TodoService;
+export default OrderBoardService;

@@ -109,7 +109,7 @@ function Loading(componentProps) {
     if (!typeIcon) {
       return (
         <div className={classNames(Styles.loadingAreaContainer)}>
-          <CircularProgress size={30} thickness={5} className={classNames(Styles.loadingCustomColor)} />
+          <CircularProgress size={30} thickness={5} />
           {RenderText}
         </div>
       );
@@ -118,7 +118,7 @@ function Loading(componentProps) {
       case 'basic':
         return (
           <div className={`${Styles.loadingAreaContainer}`}>
-            <CircularProgress size={30} thickness={5} className={classNames(Styles.loadingCustomColor)} />
+            <CircularProgress size={30} thickness={5} />
             {RenderText}
           </div>
         );

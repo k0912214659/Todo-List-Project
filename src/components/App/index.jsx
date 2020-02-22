@@ -35,7 +35,7 @@ function App({ Router, routerProps }) {
               />
               <Route
                 path="/todo"
-                render={() => <LazyComponent componentImport={import('@Components/Todo')} componentChunkName="todoChunk" />}
+                render={() => <LazyComponent componentImport={import('@Components/OrderBoard')} componentChunkName="todoChunk" />}
               />
               <Redirect to="/todo" />
             </Switch>
