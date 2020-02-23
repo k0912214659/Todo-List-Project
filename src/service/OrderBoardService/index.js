@@ -148,28 +148,6 @@ class OrderBoardService {
     }
   }
 
-  async patchLocalStorageOrderBoardIndex(id = '', data = { index: -1 }) {
-    await delay(400);
-    try {
-      const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
-      const returnData = {};
-      if (localItemOrigin) {
-        const localItemParse = JSON.parse(localItemOrigin);
-        if (getIsUUID(id)) {
-          const targetItemOrderIndex = localItemParse.order.indexOf(id);
-          if (targetItemOrderIndex > -1) {
-            const orderElement = localItemParse.order.splice(targetItemOrderIndex, 1);
-            localItemParse.order.splice(data.index, 0, orderElement);
-          }
-          localStorage.setItem(this.serviceLocalKey, JSON.stringify(localItemParse));
-        }
-      }
-      return returnData;
-    } catch (error) {
-      throw new Error('Update Local OrderBoard Item Index Error', error);
-    }
-  }
-
   async deleteLocalStorageOrderBoardItem(id = '') {
     await delay(400);
     try {

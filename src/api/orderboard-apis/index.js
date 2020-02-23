@@ -64,17 +64,6 @@ export function CreateOrderBoardLocalAPIS() {
         return errorMessage;
       }
     },
-    patchOrderBoardItemIndex: async (id, index) => {
-      try {
-        const result = await LocalOrderBoardService.patchLocalStorageOrderBoardIndex(id, index);
-        return result;
-      } catch (error) {
-        const errorMessage = {
-          error,
-        };
-        return errorMessage;
-      }
-    },
     deleteOrderBoardItem: async (id) => {
       try {
         const result = await LocalOrderBoardService.deleteLocalStorageOrderBoardItem(id);
@@ -98,9 +87,6 @@ export function CreateOrderBoardAPIS() {
       throw new Error('Please Implement Cloud API For OrderBoard');
     },
     putOrderBoardItem: async () => {
-      throw new Error('Please Implement Cloud API For OrderBoard');
-    },
-    patchOrderBoardItemIndex: async () => {
       throw new Error('Please Implement Cloud API For OrderBoard');
     },
     deleteOrderBoardItem: async () => {

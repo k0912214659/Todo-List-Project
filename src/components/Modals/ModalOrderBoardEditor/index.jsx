@@ -20,6 +20,11 @@ const OrderBoardDef = {
   note: '',
 };
 
+const FocusDef = {
+  name: false,
+  price: false,
+};
+
 function ModalOrderBoardEditor(props) {
   /* Global & Local States */
   const {
@@ -31,6 +36,7 @@ function ModalOrderBoardEditor(props) {
     onUpdate,
   } = props;
   const [orderBoardObject, setOrderBoardObject] = useState(OrderBoardDef);
+  const [isInputOnFocus, setIsInputOnFocus] = useState(FocusDef);
   const [isLoading, setIsLoading] = useState(false);
   /* Functions */
   const onTextChange = (event) => {
@@ -52,8 +58,27 @@ function ModalOrderBoardEditor(props) {
     }
     setOrderBoardObject(newOrderBoardObject);
   };
+  const onTextFocus = (event) => {
+    const newIsInputOnFocus = cloneDeep(isInputOnFocus);
+    switch (event.target.name) {
+      case 'name':
+        if (!newIsInputOnFocus.name) {
+          newIsInputOnFocus.name = true;
+        }
+        break;
+      case 'price':
+        if (!newIsInputOnFocus.price) {
+          newIsInputOnFocus.price = true;
+        }
+        break;
+      default:
+        break;
+    }
+    setIsInputOnFocus(newIsInputOnFocus);
+  };
   const onCancelClick = () => {
     onClose();
+    setIsInputOnFocus(FocusDef);
     setOrderBoardObject(OrderBoardDef);
     setIsLoading(false);
   };
@@ -93,32 +118,32 @@ function ModalOrderBoardEditor(props) {
     }
   }, [type]);
   const RenderErrorName = useMemo(() => {
-    if (!orderBoardObject.name) {
+    if (!orderBoardObject.name && isInputOnFocus.name) {
       return 'Please enter name';
     }
     return '';
-  }, [orderBoardObject]);
+  }, [orderBoardObject, isInputOnFocus]);
   const RenderErrorNameBoolean = useMemo(() => {
-    if (!orderBoardObject.name) {
+    if (!orderBoardObject.name && isInputOnFocus.name) {
       return true;
     }
     return false;
-  }, [orderBoardObject]);
+  }, [orderBoardObject, isInputOnFocus]);
   const RenderErrorPrice = useMemo(() => {
-    if (orderBoardObject.price <= 0) {
+    if (orderBoardObject.price <= 0 && isInputOnFocus.price) {
       return 'Please enter the price larger then 0';
     }
     return '';
-  }, [orderBoardObject]);
+  }, [orderBoardObject, isInputOnFocus]);
   const RenderErrorPriceBoolean = useMemo(() => {
-    if (!orderBoardObject.price) {
+    if (!orderBoardObject.price && isInputOnFocus.price) {
       return true;
     }
-    if (orderBoardObject.price <= 0) {
+    if (orderBoardObject.price <= 0 && isInputOnFocus.price) {
       return true;
     }
     return false;
-  }, [orderBoardObject]);
+  }, [orderBoardObject, isInputOnFocus]);
   const RenderConfirmDisable = useMemo(() => {
     if (orderBoardObject.name && orderBoardObject.price > 0 && !isLoading) {
       return false;
@@ -145,6 +170,7 @@ function ModalOrderBoardEditor(props) {
         error={RenderErrorNameBoolean}
         value={orderBoardObject.name}
         onChange={onTextChange}
+        onBlur={onTextFocus}
       />
       <TextField
         className={classNames(Styles.modalOrderBoardEditorInputStyle)}
@@ -155,6 +181,7 @@ function ModalOrderBoardEditor(props) {
         error={RenderErrorPriceBoolean}
         value={orderBoardObject.price}
         onChange={onTextChange}
+        onBlur={onTextFocus}
       />
       <TextField
         className={classNames(Styles.modalOrderBoardEditorInputStyle)}
@@ -171,7 +198,7 @@ function ModalOrderBoardEditor(props) {
         onChange={onTextChange}
       />
     </React.Fragment>
-  ), [orderBoardObject]);
+  ), [orderBoardObject, isInputOnFocus]);
   /* Hooks */
   useEffect(() => {
     if (type === 1) {
