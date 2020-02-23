@@ -12,13 +12,7 @@ const DefAnimationStyle = {
   leave: { opacity: 0, zIndex: 9999 },
 };
 
-const MyViewBoardFixLinearProgress = withStyles({
-  colorPrimary: {
-    backgroundColor: '#EEA0A8',
-  },
-  barColorPrimary: {
-    backgroundColor: '#990000',
-  },
+const FixLinearProgress = withStyles({
   root: {
     width: '100%',
     position: 'fixed',
@@ -27,13 +21,7 @@ const MyViewBoardFixLinearProgress = withStyles({
   },
 })(LinearProgress);
 
-const MyViewBoardRelativeLinearProgress = withStyles({
-  colorPrimary: {
-    backgroundColor: '#EEA0A8',
-  },
-  barColorPrimary: {
-    backgroundColor: '#990000',
-  },
+const RelativeLinearProgress = withStyles({
   root: {
     width: '100%',
     position: 'absolute',
@@ -129,9 +117,9 @@ function Loading(componentProps) {
           </div>
         );
       case 'line:fix':
-        return (<MyViewBoardFixLinearProgress />);
+        return (<FixLinearProgress />);
       case 'line:relative':
-        return (<MyViewBoardRelativeLinearProgress />);
+        return (<RelativeLinearProgress />);
       default:
         return (<React.Fragment />);
     }

@@ -1,13 +1,34 @@
 import uuidv4 from 'uuid/v4';
 import { delay, getIsUUID } from '@Tools/utility';
 
+const defaultOrderBoardData = [
+  {
+    id: uuidv4(),
+    name: 'Ducky One White',
+    price: 2400,
+    note: 'First keyboard',
+  },
+  {
+    id: uuidv4(),
+    name: 'Ducky Two Black',
+    price: 1900,
+    note: 'Second keyboard',
+  },
+  {
+    id: uuidv4(),
+    name: 'I-rocks K81',
+    price: 3500,
+    note: 'Third keyboard',
+  },
+];
+
 class OrderBoardService {
   constructor() {
     this.serviceLocalKey = 'react-board:orderBoard';
   }
 
   async getLocalStorageOrderBoardList(page = 1, max = 10) {
-    await delay(250);
+    await delay(400);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {
@@ -38,7 +59,7 @@ class OrderBoardService {
             total: groupsByMax.length,
           };
         } else if (groupsByMax.length > 0) {
-          returnData.list = groupsByMax[page];
+          returnData.list = groupsByMax[page - 1];
           returnData.page = {
             cur: page,
             total: groupsByMax.length,
@@ -46,8 +67,13 @@ class OrderBoardService {
         }
       } else {
         const newLocalData = {
-          list: [],
-          order: [],
+          list: defaultOrderBoardData,
+          order: defaultOrderBoardData.map((data) => data.id),
+        };
+        returnData.list = defaultOrderBoardData;
+        returnData.page = {
+          cur: 1,
+          total: 1,
         };
         localStorage.setItem(this.serviceLocalKey, JSON.stringify(newLocalData));
       }
@@ -58,7 +84,7 @@ class OrderBoardService {
   }
 
   async getLocalStorageOrderBoardItem(id) {
-    await delay(250);
+    await delay(400);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       let returnData = {};
@@ -78,7 +104,7 @@ class OrderBoardService {
   }
 
   async postLocalStorageOrderBoardItem(data = { name: '', price: 0, note: '' }) {
-    await delay(250);
+    await delay(400);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};
@@ -88,8 +114,8 @@ class OrderBoardService {
         const newListData = { id: newDataID, ...data };
         const newOrderData = newDataID;
         returnData.id = newDataID;
-        localItemParse.list.push(newListData);
-        localItemParse.order.push(newOrderData);
+        localItemParse.list.unshift(newListData);
+        localItemParse.order.unshift(newOrderData);
         localStorage.setItem(this.serviceLocalKey, JSON.stringify(localItemParse));
       }
       return returnData;
@@ -99,7 +125,7 @@ class OrderBoardService {
   }
 
   async putLocalStorageOrderBoardItem(id = '', data = { name: '', price: 0, note: '' }) {
-    await delay(250);
+    await delay(400);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};
@@ -123,7 +149,7 @@ class OrderBoardService {
   }
 
   async patchLocalStorageOrderBoardIndex(id = '', data = { index: -1 }) {
-    await delay(250);
+    await delay(400);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};
@@ -145,7 +171,7 @@ class OrderBoardService {
   }
 
   async deleteLocalStorageOrderBoardItem(id = '') {
-    await delay(250);
+    await delay(400);
     try {
       const localItemOrigin = localStorage.getItem(this.serviceLocalKey);
       const returnData = {};

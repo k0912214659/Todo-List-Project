@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import '@CSS/index.css';
 import createStore from '@Reducers/createStore';
 import createInitialStates from '@Reducers/createInitial';
 import App from '@Components/App';

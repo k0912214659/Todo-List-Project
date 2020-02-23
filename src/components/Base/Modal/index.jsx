@@ -2,6 +2,7 @@ import React, { memo, useMemo } from 'react';
 import classNames from 'classnames';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Dialog from '@material-ui/core/Dialog';
+import Loading from '@Components/Base/Loading';
 import { useTheme } from '@material-ui/core/styles';
 import Styles from './index.module.css';
 
@@ -13,6 +14,7 @@ function Modal(props) {
     open,
     onClose,
     typeSize,
+    typeIsLoading,
     children,
   } = props;
   /* Views */
@@ -32,6 +34,14 @@ function Modal(props) {
         return 'sm';
     }
   }, [typeSize]);
+  const RenderIsLoading = useMemo(() => (
+    <Loading
+      typePosition="relative"
+      typeZIndex={10003}
+      typeIcon="line:relative"
+      isLoading={typeIsLoading}
+    />
+  ), [typeIsLoading]);
   /* Main */
   return (
     <Dialog
@@ -45,6 +55,7 @@ function Modal(props) {
       disableBackdropClick
     >
       {children}
+      {RenderIsLoading}
     </Dialog>
   );
 }
