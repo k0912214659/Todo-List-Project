@@ -1,0 +1,26 @@
+/* Component Style */
+:local(.orderBoardContainer) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+}
+:local(.orderBoardMainContainer) {
+  margin: 0;
+  padding: 5px 0px 100px 0px;
+  position: relative;
+  overflow-x: auto;
+}
+:local(.orderBoardInnerContainer) {
+  position: relative;
+}
+:local(.orderBoardHeaderContainer) {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  position: relative;
+}
+:local(.orderBoardListContainer) {
+  width: 100%;
+  height: calc(100% - 40px);
+}

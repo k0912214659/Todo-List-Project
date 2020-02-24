@@ -1,6 +1,5 @@
 const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware');
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware');
-const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware');
 const ignoredFiles = require('react-dev-utils/ignoredFiles');
 const paths = require('./paths');
 const fs = require('fs');
@@ -38,7 +37,6 @@ module.exports = function(proxy, allowedHost) {
       }
       app.use(evalSourceMapMiddleware(server));
       app.use(errorOverlayMiddleware());
-      app.use(noopServiceWorkerMiddleware());
     },
   };
 };

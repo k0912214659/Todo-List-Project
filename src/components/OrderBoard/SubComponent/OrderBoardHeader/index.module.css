@@ -1,0 +1,9 @@
+/* Component Style */
+:local(.orderBoardHeaderContainer) {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  position: relative;
+}
