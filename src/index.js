@@ -10,7 +10,7 @@ async function renderApp() {
     appKey: 520,
     API_ENV: process.env.NODE_ENV,
     routerProps: {
-      basename: '',
+      basename: '/',
     },
   });
   ReactDOM.render(<Provider />, document.getElementById('root'));

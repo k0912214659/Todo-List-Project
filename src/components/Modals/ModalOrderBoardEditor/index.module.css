@@ -1,0 +1,35 @@
+/* Component Style */
+:local(.modalOrderBoardEditorThumbnailContainer) {
+  width: 100%;
+  height: 30%;
+  padding-top: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+:local(.modalOrderBoardEditorInputContainer) {
+  width: 100%;
+  height: 45%;
+}
+:local(.modalOrderBoardEditorTitleStyle) {
+  font-size: 21px;
+  font-weight: bold;
+}
+:local(.modalOrderBoardEditorThumbnailStyle) {
+  width: 75px;
+  height: 100%;
+  object-fit: contain;
+}
+:local(.modalOrderBoardEditorCloseStyle) {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer;
+}
+:local(.modalOrderBoardEditorTitleStyle) {
+  font-family: 'Open Sans', sans-serif !important;
+}
+:local(.modalOrderBoardEditorInputStyle) {
+  width: 100% !important;
+}
