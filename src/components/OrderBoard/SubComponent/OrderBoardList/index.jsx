@@ -50,6 +50,22 @@ function OrderBoardList(orderBoardListProps) {
                     variant="body2"
                     color="textPrimary"
                   >
+                    Price :
+                  </Typography>
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    color="textPrimary"
+                    className={classNames(Styles.orderBoardListItemSubTextStyle)}
+                  >
+                    {board.price}
+                  </Typography>
+                  <br />
+                  <Typography
+                    component="span"
+                    variant="body2"
+                    color="textPrimary"
+                  >
                     Notes :
                   </Typography>
                   <Typography

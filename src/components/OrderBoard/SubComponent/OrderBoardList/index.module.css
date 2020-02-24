@@ -20,6 +20,7 @@
 }
 :local(.orderBoardListItemSubTextStyle) {
   width: 90%;
+  margin-left: 5px;
   word-break: break-word;
   font-size: 14px;
 }
